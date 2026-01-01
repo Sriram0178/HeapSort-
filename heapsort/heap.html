@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heap Sort Visualizer</title>
+    <link rel="Stylesheet" href="heap.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Heap Sort Visualizer</h1>
+            <p class="subtitle">Enter numbers and watch the heap sort algorithm in action</p>
+        </div>
+
+        <!-- Input Section -->
+        <div id="inputSection" class="card">
+            <div class="input-group">
+                <label for="count">How many numbers do you want to sort?</label>
+                <input type="number" id="count" min="1" max="20" placeholder="Enter count (max 20)" style="max-width: 300px;">
+            </div>
+
+            <div id="numbersContainer" class="hidden">
+                <label>Enter your numbers:</label>
+                <div id="numbersGrid" class="numbers-grid"></div>
+            </div>
+
+            <div id="animateButtonContainer" class="btn-center hidden">
+                <button class="btn btn-primary" onclick="validateAndAnimate()">ANIMATE - HEAPSORT</button>
+            </div>
+        </div>
+
+        <!-- Visualization Section -->
+        <div id="visualizationSection" class="hidden">
+            <div class="card">
+                <div class="step-info">
+                    <span class="badge" id="stepBadge">Step 1 of 1</span>
+                    <span class="step-description" id="stepDescription">Initial array</span>
+                </div>
+
+                <div class="visualization" id="barChart"></div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #6366f1;"></div>
+                        <span class="legend-text">Unsorted</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #eab308;"></div>
+                        <span class="legend-text">Comparing</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ef4444;"></div>
+                        <span class="legend-text">Swapping</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #10b981;"></div>
+                        <span class="legend-text">Sorted</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heap Tree Section -->
+            <div id="treeSection" class="card hidden">
+                <h3 class="section-title">Final Sorted Array as Heap Tree</h3>
+                <p class="section-description">
+                    The sorted array visualized as a binary heap structure. Each node shows its value and array index.
+                </p>
+                <div class="tree-container">
+                    <svg id="treeSvg" class="tree-svg"></svg>
+                </div>
+            </div>
+
+            <div class="btn-center">
+                <button class="btn btn-secondary" onclick="resetApp()">Start Over</button>
+            </div>
+        </div>
+    </div>
+
+   <script src="heap.js"></script>
+</body>
+</html>
